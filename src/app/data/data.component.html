@@ -1,0 +1,51 @@
+<div class="dashboard-page">
+  <div class="dashboard-panel">
+
+    <div class="dashboard-banner-panel">
+      <h2>Today's Count</h2>
+      <div class="dashboard-banner">
+        <h1>{{ todaysEvents.eventCount }}</h1>
+        <h3>Last 5</h3>
+        <p></p>
+        <div *ngFor="let aDay of lastDays">
+          <p>{{ aDay.eventCount }} - {{ aDay.date }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="dashboard-banner-panel">
+      <h2>Nodes Active/Total</h2>
+      <div class="dashboard-banner">
+        <h1>{{ todaysNodes.activeNodes }}/{{ todaysNodes.totalNodes }}</h1>
+        <h3>Last 5</h3>
+        <p></p>
+        <div *ngFor="let aNodeDay of latestNodes">
+          <p>{{ aNodeDay.activeNodes }}/{{ aNodeDay.totalNodes }} - {{ aNodeDay.date }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="dashboard-table-panel">
+      <h2>Latest Events</h2>
+      <table class="dashboard-table">
+        <tr *ngFor="let aRow of latestEvents">
+          <td> {{ aRow.severity }}</td>
+          <td> {{ aRow.type }}</td>
+          <td> {{ aRow.occurred }}</td>
+        </tr>
+      </table>
+      <button>See All</button>
+    </div>
+
+  </div>
+
+  <div class="dashboard-panel">
+    <h2>Events Per Day</h2>
+    <canvas id="eventChart" width="500" height="340" #eventchart></canvas>
+    <h2>Nodes Active/Total</h2>
+    <canvas id="nodeChart" width="500" height="230" #nodechart></canvas>
+    <h2>Event Types</h2>
+    <canvas id="typesChart" width="500" height="230" #typeschart></canvas>
+  </div>
+  
+</div>
